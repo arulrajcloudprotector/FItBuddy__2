@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users - Admin</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container-wide">
+        <h1>All Users & Their Plans</h1>
+
+        {% if users %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th><th>Name</th><th>Age</th><th>Weight</th>
+                    <th>Goal</th><th>Intensity</th>
+                    <th>Original Plan</th><th>Updated Plan</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in users %}
+                <tr>
+                    <td>{{ u.id }}</td>
+                    <td>{{ u.name }}</td>
+                    <td>{{ u.age }}</td>
+                    <td>{{ u.weight }}</td>
+                    <td>{{ u.goal }}</td>
+                    <td>{{ u.intensity }}</td>
+                    <td><pre>{{ u.original_plan }}</pre></td>
+                    <td><pre>{{ u.updated_plan }}</pre></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>No users yet.</p>
+        {% endif %}
+
+        <p style="text-align:center;"><a href="/">← Back to Home</a></p>
+    </div>
+</body>
+</html>
